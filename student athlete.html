@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Crush Other Student Athletes — Course</title>
+  <style>
+  :root{--accent:#3b82f6;--dark:#1f2937;--muted:#6b7280;--bg:#f8fafc}
+  *{box-sizing:border-box}
+  body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;margin:0;background:var(--bg);color:var(--dark)}
+  .container{max-width:980px;margin:28px auto;padding:24px}
+  header{display:flex;align-items:center;gap:20px}
+  .logo{width:68px;height:68px;border-radius:10px;background:linear-gradient(135deg,#3b82f6,#60a5fa);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+  h1{margin:0;font-size:28px}
+  .sub{color:var(--muted);margin-top:6px}
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:18px}
+  .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 22px rgba(15,23,42,0.06)}
+  .price{font-size:22px;font-weight:700;color:var(--accent)}
+  .buy{display:inline-block;background:var(--accent);color:white;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin-top:12px}
+  .features{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+  .pill{background:#eef2ff;padding:6px 10px;border-radius:999px;color:#3730a3;font-weight:600;font-size:13px}
+  section h2{margin-top:28px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .module{padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #eef2f6}
+  .outline{margin-top:12px}
+  .testimonials{display:flex;gap:12px;flex-wrap:wrap}
+  .testimonial{flex:1;min-width:220px;padding:12px;border-radius:8px;background:#fff}
+  footer{margin-top:28px;color:var(--muted);text-align:center;padding:24px}
+  .download-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  button{cursor:pointer}
+  .secondary{background:#fff;border:1px solid #e6eef6;padding:10px 12px;border-radius:8px}
+  .small{font-size:13px;color:var(--muted)}
+  @media(max-width:900px){.hero{grid-template-columns:1fr} .grid-3{grid-template-columns:repeat(1,1fr)}}
+  /* Print styles for worksheets */
+  @media print{body{background:white} .no-print{display:none}}
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">CO</div>
+      <div>
+        <h1>Crush Other Student Athletes</h1>
+        <div class="sub">Become the fastest, strongest, and smartest athlete on your team — built for student athletes balancing school and sport.</div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div>
+        <div class="card">
+          <h2>What you get</h2>
+          <div class="module"><strong>Module 1 — Mindset</strong><div>Goal setting, motivation, focus routines.</div></div>
+          <div class="module"><strong>Module 2 — Train Smarter</strong><div>Program design, weekly plans that fit school.</div></div>
+          <div class="module"><strong>Module 3 — Speed</strong><div>Warm-ups, sprint mechanics, starts.</div></div>
+          <div class="module"><strong>Module 4 — Strength</strong><div>Bodyweight + home strength for power.</div></div>
+          <div class="module"><strong>Module 5 — Conditioning</strong><div>Sport-friendly conditioning without long runs.</div></div>
+          <div class="module"><strong>Module 6 — Nutrition</strong><div>Pre/post workouts, snacks, cheap meals.</div></div>
+          <div class="module"><strong>Module 7 — Recovery</strong><div>Sleep, mobility, soreness fixes.</div></div>
+          <div class="module"><strong>Module 8 — Balance</strong><div>Homework + practice strategies.</div></div>
+          <div class="module"><strong>Module 9 — Game Day</strong><div>Warm-up, nerves, match habits.</div></div>
+          <div class="module"><strong>Module 10 — The Grind</strong><div>30-day plan and long-term habits.</div></div>
+
+          <div style="margin-top:14px">
+            <div class="price">$49 one-time</div>
+            <a class="buy" href="#" id="buyButton">Buy Now</a>
+            <div class="features">
+              <span class="pill">Immediate access</span>
+              <span class="pill">Printable worksheets</span>
+              <span class="pill">30-day plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3>Money-back guarantee</h3>
+          <p>Try it risk-free for 30 days. If you don’t see progress, get a full refund.</p>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <h2>Why this works</h2>
+      <p>Built for busy student athletes: workouts under 30 minutes, cheap & fast meals, and habits you can maintain during the school year.</p>
+    </section>
+
+    <footer>
+      <div>© Crush Other Student Athletes • <a href="#">Contact</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('buyButton').addEventListener('click', async () => {
+      try {
+        const res = await fetch('/create-checkout-session', { method:'POST', headers:{'Content-Type':'application/json'} });
+        const data = await res.json();
+        if(data.url) window.location = data.url;
+      } catch(e) {
+        console.error(e);
+      }
+    });
+  </script>
+</body>
+</html>
